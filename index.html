@@ -1,11 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>GitHub Pages Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Can You Be Mine? 💘</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 400% 400%;
+            animation: bgMove 12s ease infinite;
+            font-family: "Poppins", sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            width: min(92%, 420px);
+            padding: 40px 30px 45px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(18px);
+            border-radius: 28px;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 68px;
+            margin-bottom: 12px;
+            animation: heartbeat 1.8s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #4a1c2f;
+            margin-bottom: 30px;
+        }
+
+        .buttons { position: relative; height: 78px; }
+
+        button {
+            position: absolute;
+            padding: 14px 36px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #yes {
+            left: 12%;
+            background: #ff4d6d;
+            color: #fff;
+        }
+
+        #no {
+            left: 55%;
+            background: #fff;
+            color: #777;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to GitHub Pages!</h1>
-    <p>This is where you can serve static content.</p>
+
+    <div class="card">
+        <div class="emoji">🐱❤️</div>
+        <h2>Diane Grace,<br>can you be mine?</h2>
+
+        <div class="buttons">
+            <button id="yes">Yes 💖</button>
+            <button id="no">No 🙈</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+
+        noBtn.addEventListener("mouseenter", () => {
+            noBtn.style.left = Math.random() * 80 + "%";
+            noBtn.style.top = Math.random() * 80 + "%";
+        });
+
+        yesBtn.addEventListener("click", () => {
+            confetti();
+            alert("YAY 💕 I can't wait to be with you!");
+        });
+    </script>
+
 </body>
+
 </html>
